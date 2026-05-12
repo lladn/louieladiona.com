@@ -1,4 +1,4 @@
-name = "louieladiona.net"
+name = "louieladiona"
 pages_build_output_dir = "hugo/public"
 
 [vars]
