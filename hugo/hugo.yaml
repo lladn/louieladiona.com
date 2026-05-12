@@ -72,8 +72,8 @@ menu:
       url: /posts/
       weight: 15
     - identifier: tags
-      name: Projects
-      url: /projects/
+      name: Knowledge Base
+      url: /knowledge-base/
       weight: 20
     - identifier: archives
       name: Archives
