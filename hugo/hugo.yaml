@@ -1,4 +1,4 @@
-baseURL: "https://ladiona.louie.site"
+baseURL: "https://louieladiona.net/"
 languageCode: en-us
 title: Louie Ladiona
 theme: PaperMod
@@ -39,7 +39,7 @@ params:
     - name: instagram
       url: "https://instagram.com/louieladn"
     - name: "rss"
-      url: "https://ladiona.louie.site"
+      url: "https://louieladiona.net/rss.xml"
     - name: buymeacoffee
       url: "https://buymeacoffee.com/louieladiona"
   fuseOpts:
