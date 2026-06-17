@@ -24,7 +24,7 @@ I am **Louie Ladiona**, a Site Reliability Engineer (SRE) with a strong focus on
 
 
 ## Resume 
-[View my Resume](/files/ladiona_louie_SRE.pdf)
+[View my Resume](/files/louieladiona_resume.pdf)
 
 
 ## Socials
