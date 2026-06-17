@@ -23,7 +23,7 @@ params:
   profileMode:
     enabled: true
     title: Look at the sky, beautiful isn't it? 
-    subtitle: "This is my personal blog. I write about topics that I enjoy,."
+    subtitle: "This is my personal blog. I write about topics that I enjoy, I ussually  Exploring technology, building useful tools, staying active, and documenting what I learn along the way."
     #  imageUrl: <image link>
     # imageTitle: <title of image as alt>
     imageWidth: 120
@@ -58,7 +58,7 @@ outputs:
     - RSS
     - JSON
 
-
+rssLimit: 1000
 
 
 menu:
