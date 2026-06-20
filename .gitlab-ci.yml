@@ -30,7 +30,7 @@ commit_changes:
     - git config --global user.name "gitlab-ci"
     - git checkout -B pdf-update
     - git add hugo/static/files/louieladiona_resume.pdf
-    - git diff --cached --quiet && echo "No changes to commit" && exit 0 || true
+    - sh -c 'git diff --cached --quiet && echo "No changes to commit" && exit 0 || true'
     - git commit -m "chore: update resume PDF [CI]"
     - git push https://oauth2:${GITLAB_TOKEN}@gitlab.com/$CI_PROJECT_PATH.git pdf-update
   rules:
