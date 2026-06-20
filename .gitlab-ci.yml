@@ -1,0 +1,55 @@
+stages:
+  - build
+  - commit
+  - merge
+
+variables:
+  GIT_STRATEGY: fetch
+
+export_pdf:
+  stage: build
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache curl bash
+  script:
+    - echo "Exporting Google Doc..."
+    - ./scripts/exportpdf.sh
+  artifacts:
+    paths:
+      - hugo/static/files/louieladiona_resume.pdf
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "trigger"'
+
+commit_changes:
+  stage: commit
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache git
+  script:
+    - git config --global user.email "ci@gitlab.com"
+    - git config --global user.name "gitlab-ci"
+    - git checkout -B pdf-update
+    - git add hugo/static/files/louieladiona_resume.pdf
+    - |
+      if git diff --cached --quiet; then
+        echo "No changes to commit"
+        exit 0
+      fi
+    - git commit -m "chore: update resume PDF [CI]"
+    - git push https://oauth2:${GITLAB_TOKEN}@gitlab.com/$CI_PROJECT_PATH.git pdf-update
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "trigger"'
+
+create_merge_request:
+  stage: merge
+  image: curlimages/curl:latest
+  script:
+    - |
+      curl --request POST \
+        --header "PRIVATE-TOKEN: $GITLAB_TOKEN" \
+        --data "source_branch=pdf-update" \
+        --data "target_branch=main" \
+        --data "title=Auto update resume PDF" \
+        "https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/merge_requests"
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "trigger"'

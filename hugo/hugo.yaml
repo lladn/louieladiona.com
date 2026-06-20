@@ -1,4 +1,4 @@
-baseURL: "https://louieladiona.net/"
+baseURL: "https://louieladiona.com/"
 languageCode: en-us
 title: Louie Ladiona
 theme: PaperMod
@@ -14,6 +14,9 @@ params:
   ShowShareButtons: true
   ShareButtons:
     - linkedin
+    - twitter
+    - facebook
+  ShowAuthor: true
   ShowBreadCrumbs: true
   ShowReadingTime: true
   ShowPostNavLinks: true
@@ -23,14 +26,17 @@ params:
   profileMode:
     enabled: true
     title: Look at the sky, beautiful isn't it? 
-    subtitle: "This is my personal blog. I write about topics that I enjoy,."
-    #  imageUrl: <image link>
-    # imageTitle: <title of image as alt>
-    imageWidth: 120
-    imageHeight: 120
+    subtitle: > 
+      This is my personal blog. I write about topics that I enjoy, 
+      I ussually  Exploring technology, building useful tools, staying active, 
+      and documenting what I learn along the way."
+    imageUrl: https://avatars.githubusercontent.com/lladn?size=175
+    # imageTitle: "Profile Image"
+    imageWidth: 200
+    imageHeight: 200
   homeInfoParams:
     title: Look at the sky, beautiful isn't it? 
-    Content: This is my personal blog. I write about topics that I enjoy, mostly about software engineering, testing and software quality. Read more about me [here](/about).
+    Content: "This is my personal blog. I write about topics that I enjoy, I ussually  Exploring technology, building useful tools, staying active, and documenting what I learn along the way."
   socialIcons:
     - name: linkedin
       url: "https://linkedin.com/in/ladionalouie"
@@ -39,7 +45,7 @@ params:
     - name: instagram
       url: "https://instagram.com/louieladn"
     - name: "rss"
-      url: "https://louieladiona.net/rss.xml"
+      url: "https://louieladiona.com/index.xml"
     - name: buymeacoffee
       url: "https://buymeacoffee.com/louieladiona"
   fuseOpts:
@@ -58,7 +64,7 @@ outputs:
     - RSS
     - JSON
 
-
+rssLimit: 1000
 
 
 menu:
