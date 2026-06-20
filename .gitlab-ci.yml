@@ -48,7 +48,7 @@ create_merge_request:
       curl --request POST \
         --header "PRIVATE-TOKEN: $GITLAB_TOKEN" \
         --data "source_branch=pdf-update" \
-        --data "target_branch=main" \
+        --data "target_branch=master" \
         --data "title=Auto update resume PDF" \
         "https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/merge_requests"
   rules:

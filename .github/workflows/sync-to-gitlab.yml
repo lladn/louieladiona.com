@@ -3,7 +3,7 @@ name: Sync to GitLab
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   sync:
@@ -17,4 +17,4 @@ jobs:
       - name: Push to GitLab
         run: |
           git remote add gitlab https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/louieladn/louieladiona.net.git
-          git push gitlab main --force
+          git push gitlab master --force
