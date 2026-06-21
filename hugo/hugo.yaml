@@ -23,6 +23,7 @@ params:
   ShowCodeCopyButtons: true
   hideSummary: false
   hideFooter: false
+  comments: true
   profileMode:
     enabled: true
     title: Look at the sky, beautiful isn't it? 
