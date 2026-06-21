@@ -13,12 +13,12 @@ export_pdf:
     - apk add --no-cache curl bash
   script:
     - echo "Exporting Google Doc..."
-    - ./scripts/exportpdf.sh
+    - sh scripts/exportpdf.sh
   artifacts:
     paths:
       - hugo/static/files/louieladiona_resume.pdf
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "trigger"'
+    - if: '$CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE == "push"'
 
 commit_changes:
   stage: commit
@@ -28,7 +28,7 @@ commit_changes:
   script:
     - sh scripts/commit_pdf.sh
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "trigger"'
+    - if: '$CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE == "push"'
 
 create_merge_request:
   stage: merge
@@ -38,8 +38,9 @@ create_merge_request:
       curl --request POST \
         --header "PRIVATE-TOKEN: $GITLAB_TOKEN" \
         --data "source_branch=pdf-update" \
-        --data "target_branch=master" \
+        --data "target_branch=main" \
         --data "title=Auto update resume PDF" \
+        --data "remove_source_branch=true" \
         "https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/merge_requests"
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "trigger"'
+    - if: '$CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE == "push"'
