@@ -10,7 +10,7 @@ export_pdf:
   stage: build
   image: alpine:latest
   before_script:
-    - apk add --no-cache curl bash
+    - apk add --no-cache curl bash git
   script:
     - echo "Exporting Google Doc..."
     - sh scripts/export_pdf.sh
