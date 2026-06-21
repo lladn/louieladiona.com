@@ -13,7 +13,7 @@ export_pdf:
     - apk add --no-cache curl bash
   script:
     - echo "Exporting Google Doc..."
-    - sh scripts/exportpdf.sh
+    - sh scripts/export_pdf.sh
   artifacts:
     paths:
       - hugo/static/files/louieladiona_resume.pdf
