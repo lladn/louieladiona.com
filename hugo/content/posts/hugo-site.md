@@ -4,7 +4,7 @@ title: 'Personal Page with Hugo'
 draft: false
 showtoc: true
 tocopen: false
-tags: ['hugo']
+tags: ['hugo', 'website', 'ssg', 'static site']
 ---
 
 
@@ -158,6 +158,36 @@ params:
 ```
 
 Just swap in your own links and text.
+
+
+## Adding comment system
+Adding comments is straightforward since PaperMod supports it out of the box — you just need to wire up an external provider. Disqus is a popular option but it's paid and comes bundled with ads, so I skipped it. Instead, I went with giscus, which is free and backed by GitHub Discussions. The only caveat is that readers need a GitHub account to comment, but since this blog leans technical, that's a reasonable assumption.
+To set it up, create a layouts/partials/comments.html file in your Hugo project and paste in the script snippet generated from the giscus website. Then enable it in your hugo.yaml (or hugo.toml) under params:
+
+```json
+params:
+  comments: true
+```
+
+The giscus will generate like this. 
+```html
+<script src="https://giscus.app/client.js"
+  data-repo="lladn/your-repo"
+  data-repo-id="YOUR_REPO_ID"
+  data-category="General"
+  data-category-id="YOUR_CATEGORY_ID"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="en"
+  crossorigin="anonymous"
+  async>
+</script>
+```
+
 
 ## Final Thoughts
 
